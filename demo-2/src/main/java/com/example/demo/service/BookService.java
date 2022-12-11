@@ -27,7 +27,7 @@ public class BookService {
 	/*public void DeleteBookById(int id) {
 		bookDAO.DeleteBookByid(id);
 	}
-	*/
+	*/ 
 	public void UpdateName(int id) {
 		bookDAO.UpdateName(id);
 	}
