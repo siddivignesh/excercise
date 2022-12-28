@@ -42,7 +42,7 @@ public class StudentDAO {
 		students.add(s2);
 	}
 
-	public void addStudent(Student student) 
+	public void addStudent(Student student) {
 		studentarray[0] = new Student();
 		studentarray[0].setName("amar");
 		  studentarray[1] = new Student();

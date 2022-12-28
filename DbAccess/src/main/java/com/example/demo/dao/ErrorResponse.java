@@ -1,7 +1,7 @@
 package com.example.demo.dao;
 
 public class ErrorResponse {
-String message;
+String message ;
 
 public String getMessage() {
 	return message;

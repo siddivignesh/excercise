@@ -24,17 +24,17 @@ public class StudentService {
 	}
 
 	public void addStudent(Student student) {
-		try {
+		//try {
 		
 		studentDAO.addStudent(student);
-		}catch(Exception e){
-			e.printStackTrace();  
-			System.out.println("Exception raised. Message: " + e.getMessage());
-			throw e;
-		}
-		finally{
-			System.out.println("students");
+		//}catch(Exception e){
+			//e.printStackTrace();  
+			//System.out.println("Exception raised. Message: " + e.getMessage());
+			//throw e;
+		//}
+		//finally{
+			//System.out.println("students");
 			
-		}
+		//}
 	}
 }
