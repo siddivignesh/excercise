@@ -1,11 +1,23 @@
 package com.example.demo.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Student {
+	public List<Book> getBooks() {
+		return books;
+	}
+
+	public void setBooks(List<Book> books) {
+		this.books = books;
+	}
+
 	int id;
 	int clgdeptid;
 	String name;
 	int availableseats;
-	
+
+	List<Book> books = new ArrayList<Book>();
 
 	public int getAvailableseats() {
 		return availableseats;

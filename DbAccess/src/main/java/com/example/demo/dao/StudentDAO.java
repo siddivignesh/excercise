@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,33 +31,103 @@ public class StudentDAO {
 	private JdbcTemplate jdbctemplate;
 
 	public List<Student> GetAllStudents() {
+		// List<Student> students = new ArrayList<Student>();
+		List<Map<String, Object>> resultList = jdbctemplate
+				.queryForList("SELECT ST.ID STID,ST.NAME STN,BKS.ID BKSD,BKS.NAME BKSN \r\n" + "FROM STUDENTS ST\r\n"
+						+ "LEFT JOIN BOOKS_RESERVATION BR ON ST.ID = BR.STUDENT_ID\r\n"
+						+ "LEFT JOIN BOOKS BKS ON  BR.BOOK_ID= BKS.ID;");
+		Map<Integer, Student> map = new HashMap<Integer, Student>();
 
-		List<Student> students = jdbctemplate.query("SELECT * FROM STUDENTS", new StudentMapper());
-		return students;
+		for (Map<String, Object> r1 : resultList) {
+			// r1.get("STID");
+			// r1.get("STN");
+			// r1.get("BKSD");
+			// System.out.printl
+			// r1.get("BKSN");
+
+			// Student s1 = new Student();
+
+			// s1.setId((int) r1.get("STID"));
+			// s1.setName((String) r1.get("STN"));
+
+			// s1.setId((int)r1.get("BKSD"));
+			// s1.setName((String)r1.get("BKSN"));
+
+			// students.add(s1);
+
+			// students.stream().filter(student -> student.getId() == ((int)
+			// r1.get("STID"))).
+
+			Student st = map.get(r1.get("STID"));
+
+			/*
+			 * List<Student> s1 = students.stream().filter(student -> student.getId() ==
+			 * ((int) r1.get("STID"))) .collect(Collectors.toList());
+			 * 
+			 * if (!s1.isEmpty()) {// students.stream().filter(student -> student.getId() ==
+			 * ((int) // r1.get("STID"))).collect(Collectors.toList()).isEmpty()){ st =
+			 * s1.get(0); }
+			 */
+
+			// if(sm==null)
+
+			if (st == null) {
+				st = new Student();
+				st.setId((int) r1.get("STID"));
+				st.setName((String) r1.get("STN"));
+				// students.add(st);
+				map.put(st.getId(), st);
+
+			}
+
+			// for (Student student : students) {
+
+			// if (student.getId() == ((int) r1.get("STID"))) {
+			// st = student;
+			// break;
+			// }
+			// }
+
+			// System.out.println(st);
+			/*
+			 * if (st == null) { st = new Student(); st.setId((int)r1.get("STID"));
+			 * st.setName((String)r1.get("STN")); students.add(st);
+			 * 
+			 * }
+			 */
+			// System.out.println(r1.get("BKSD"));
+			if (r1.get("BKSD") != null) {
+				Book b1 = new Book();
+				b1.setId((int) r1.get("BKSD"));
+				b1.setName((String) r1.get("BKSN"));
+				st.getBooks().add(b1);
+			}
+		}
+		// List<Student> students = new ArrayList<Student>();
+		return new ArrayList<Student>(map.values());
+
 	}
 
 	public List<Book> getAllBooks() {
-		List<Book> books = jdbctemplate.query("SELECT BKS.ID BKSID,BR.STUDENT_ID BRSD,ST.NAME STN,BKS.NAME BKSN FROM BOOKS BKS\r\n"
-				+ "LEFT JOIN BOOKS_RESERVATION BR ON BR.ID =  BKS.ID\r\n"
-				+ "LEFT JOIN STUDENTS ST ON ST.ID=BR.STUDENT_ID;\r\n"
-				+ "\r\n"
-				, new RowMapper<Book>() {
+		List<Book> books = jdbctemplate
+				.query("SELECT BKS.ID BKSID,BR.STUDENT_ID BRSD,ST.NAME STN,BKS.NAME BKSN FROM BOOKS BKS\r\n"
+						+ "LEFT  JOIN BOOKS_RESERVATION BR ON BR.ID =  BKS.ID\r\n"
+						+ "LEFT JOIN STUDENTS ST ON ST.ID=BR.STUDENT_ID;\r\n" + "\r\n", new RowMapper<Book>() {
 
-			@Override
-			public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
-				// TODO Auto-generated method stub
-				Book book = new Book();
-				book.setId(rs.getInt("bksid"));
-				book.setName(rs.getNString("bksn"));
-				book.setStudentid(rs.getInt("brsd"));
-				book.setStudentname(rs.getNString("stn"));
-				
-				
-				return book;
-			}
+							@Override
+							public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
+								// TODO Auto-generated method stub
+								Book book = new Book();
+								book.setId(rs.getInt("bksid"));
+								book.setName(rs.getNString("bksn"));
+								book.setStudentid(rs.getInt("brsd"));
+								book.setStudentname(rs.getNString("stn"));
 
-		});
-		
+								return book;
+							}
+
+						});
+
 		return books;
 
 	}
@@ -158,7 +232,7 @@ public class StudentDAO {
 
 	public Student updateavailableseats(int id) {
 		KeyHolder keyHolder1 = new GeneratedKeyHolder();
-
+ 
 		String query = "UPDATE COLLEGE_DEPARTMENTS \r\n" + "SET AVAILABLE_SEATS = AVAILABLE_SEATS-1\r\n"
 				+ "WHERE ID = ?;";
 		// we are creating anonymous class which implements the interface
@@ -280,7 +354,7 @@ public class StudentDAO {
 		if (s2 == 0) {
 			MyRunTimeException r3 = new MyRunTimeException();
 			r3.setReason("invalid id to delete");
-			throw r3;
+			throw r3; 
 		}
 	}
 

@@ -14,15 +14,14 @@ public class CounsellingMapper implements RowMapper<Counselling> {
 		// TODO Auto-generated method stub
 		Counselling counsellings = new Counselling();
 		counsellings.setId(rs.getInt("CDI"));
-		 counsellings.setCollege(rs.getNString("CLN"));
+		counsellings.setCollege(rs.getNString("CLN"));
 		counsellings.setDepartment(rs.getNString("DPN"));
-		 counsellings.setSeats(rs.getInt("NOS"));
-		 counsellings.setClgdeptid(rs.getInt("CLI"));
-		 counsellings.setDepartementid(rs.getInt("DPI"));
-		 counsellings.setAvailableseats(rs.getInt("AVAILABLE_SEATS"));
+		counsellings.setSeats(rs.getInt("NOS"));
+		counsellings.setClgdeptid(rs.getInt("CLI"));
+		counsellings.setDepartementid(rs.getInt("DPI"));
+		counsellings.setAvailableseats(rs.getInt("AVAILABLE_SEATS"));
 
 		return counsellings;
 	}
-	
 
 }

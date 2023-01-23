@@ -28,9 +28,12 @@ public class StudentController {
 	public @ResponseBody List<Student> GetAllStudents() {
 		// List<Student> students = studentService.GetAllStudents();
 		// return students;
-
+ 
 		return studentService.GetAllStudents();
 	}
+	
+	//abcefghijklmnopqrstuvwxyz
+	
 	@RequestMapping(value = "/getallbooks", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Book> getAllBooks(){
 		// List<Student> students = studentService.GetAllStudents();

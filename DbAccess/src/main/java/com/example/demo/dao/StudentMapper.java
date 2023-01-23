@@ -13,9 +13,12 @@ public class StudentMapper implements RowMapper<Student>{
 	public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
 		// TODO Auto-generated method stub
 		Student students = new Student();
-		students.setId(rs.getInt("ID"));
-		students.setName(rs.getNString("NAME"));
-		students.setClgdeptid(rs.getInt("CLG_DEPT_ID"));
+		students.setId(rs.getInt("STID"));
+		students.setName(rs.getNString("STN"));
+		//students.setBookid(rs.getInt("BKSD"));
+		//students.setBookname(rs.getNString("BKSN"));
+		
+		//students.setClgdeptid(rs.getInt("CLG_DEPT_ID"));
 		return students;
 	}
 	

@@ -1,4 +1,5 @@
 package com.example.demo.service;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +21,20 @@ public class StudentService {
 		List<Student> students = studentDAO.GetAllStudents();
 		return students;
 	}
-	public List<Book> getAllBooks(){
-		 return studentDAO.getAllBooks();
-		
-		
+
+	public List<Book> getAllBooks() {
+		return studentDAO.getAllBooks();
+
 	}
-	public Book addbook(Book book){
+
+	public Book addbook(Book book) {
 		return studentDAO.addbook(book);
 	}
-public List<Book> getbook(int id) {
-	return studentDAO.getbook(id);
-}
+
+	public List<Book> getbook(int id) {
+		return studentDAO.getbook(id);
+	}
+
 	public List<Counselling> getclgdepartment() {
 
 		return studentDAO.getclgdepartment();
@@ -75,8 +79,7 @@ public List<Book> getbook(int id) {
 			e.printStackTrace();
 			System.out.println("Exception raised. Message: " + e.getMessage());
 			throw e;
-		
-			
+
 		} finally {
 			System.out.println("students");
 
