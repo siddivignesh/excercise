@@ -73,4 +73,9 @@ public class Counselling {
 
 	}
 
+	public int getAvailableSeats() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

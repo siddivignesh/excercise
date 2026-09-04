@@ -158,7 +158,7 @@ public class StudentDAO {
 	 * @Override public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
 	 * // TODO Auto-generated method stub Book books = new Book();
 	 * books.setId(rs.getInt("ID")); return books; }
-	 * 
+	 * F
 	 * }, id); if (books.isEmpty()) { System.out.println("not alloted"); } Book book
 	 * = books.get(0);
 	 * 
@@ -177,7 +177,7 @@ public class StudentDAO {
 				st.setInt(1, book.getId());
 				st.setString(2, book.getName());
 				return st;
-			}
+			}  
 		}, keyHolder);
 
 		return book;
@@ -343,7 +343,7 @@ public class StudentDAO {
 		 * PreparedStatement st = connection.prepareStatement(deletequery, new String[]
 		 * {}); st.setInt(1, id);
 		 * 
-		 * return st;
+		 * return st;  
 		 * 
 		 * } };
 		 */

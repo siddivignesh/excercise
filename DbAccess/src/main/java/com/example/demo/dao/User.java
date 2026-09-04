@@ -1,4 +1,4 @@
-package com.example.demo.dao;
+/*package com.example.demo.dao;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,3 +37,4 @@ public class User {
 	
 
 }
+*/

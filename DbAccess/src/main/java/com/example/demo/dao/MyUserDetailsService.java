@@ -1,4 +1,4 @@
-package com.example.demo.dao;
+/*package com.example.demo.dao;
 
 import java.util.Optional;
 
@@ -24,8 +24,10 @@ public class MyUserDetailsService implements UserDetailsService {
 
 		System.out.println("user: " + user.get().getUsername());
 		System.out.println("user: " + user.get().getPassword());
+		//System.out.println("user: " + user.get().);
 
 		return new UserPrincipal(user.get());
 	}
 
 }
+*/

@@ -17,4 +17,5 @@ public class CounsellingService {
 	public List<Counselling> getalldepartments(){
 		return counsellingDAO.getalldepartements();
 	}
+	 
 }

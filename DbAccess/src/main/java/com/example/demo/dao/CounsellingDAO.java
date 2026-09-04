@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import com.example.demo.models.College;
 import com.example.demo.models.Counselling;
 
 @Component
@@ -18,9 +19,7 @@ public class CounsellingDAO {
 		List<Counselling> counsellings = jdbctemplate.query("SELECT * FROM DEPARTMENTS ", new CounsellingMapper());
 
 		return counsellings;
-
 	}
-	
 
 	
 }

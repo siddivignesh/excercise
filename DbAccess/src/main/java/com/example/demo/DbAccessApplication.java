@@ -12,7 +12,9 @@ public class DbAccessApplication {
 	 i=j;
 	 */
 		SpringApplication.run(DbAccessApplication.class, args);
-		System.out.println("hi from main");
+		System.out.println("hi from main of Dbaccess");
+		
 	}
+	
 
 }

@@ -1,4 +1,4 @@
-package com.example.demo.dao;
+/*package com.example.demo.dao;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -21,6 +21,7 @@ public class UserPrincipal implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
+		System.out.println("in get authorities");
 		return Collections.singleton(new SimpleGrantedAuthority("USER"));
 	}
 
@@ -61,3 +62,4 @@ public class UserPrincipal implements UserDetails {
 	}
 
 }
+*/

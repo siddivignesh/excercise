@@ -1,4 +1,4 @@
-package com.example.demo.dao;
+ package com.example.demo.dao;
 
 import java.util.List;
 
@@ -23,12 +23,13 @@ public class CollegeDAO {
 		}
 
 		return colleges.get(0);
-
 	}
 	
+
 	public List<College> getallcolleges() {
 		// TODO Auto-generated method stub
 		List<College> colleges = jdbctemplate.query("SELECT * FROM COLLEGES", new CollegeMapper());
 		return colleges;
 	}
+	
 } 

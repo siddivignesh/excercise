@@ -14,7 +14,7 @@ public class Student {
 
 	int id;
 	int clgdeptid;
-	String name;
+	String name; 
 	int availableseats;
 
 	List<Book> books = new ArrayList<Book>();
